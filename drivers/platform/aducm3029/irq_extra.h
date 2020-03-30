@@ -53,7 +53,7 @@
 /******************************************************************************/
 
 /** Number of available interrupts */
-#define NB_INTERRUPTS		5u
+#define NB_INTERRUPTS		6u
 
 /******************************************************************************/
 /*************************** Types Declarations *******************************/
@@ -73,7 +73,9 @@ enum irq_id {
 	/** External interrupt 0, on GPIO 33 */
 	ADUCM_EXTERNAL_INT3_ID,
 	/** UART interrupt ID*/
-	ADUCM_UART_INT_ID
+	ADUCM_UART_INT_ID,
+	/** RTC interrupt ID*/
+	ADUCM_RTC_INT_ID
 };
 
 /**
@@ -102,6 +104,8 @@ union irq_config {
 	struct uart_desc	*uart_conf;
 	/** Trigger condition for the external interrupt */
 	enum irq_mode		xint_conf;
+	/** RTC descriptor */
+	struct rtc_desc		*rtc_conf;
 };
 
 /**
